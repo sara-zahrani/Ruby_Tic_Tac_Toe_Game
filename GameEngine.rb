@@ -11,12 +11,19 @@ class GameEngine
 	  @human_player_move = 0
 	end
   # Check if the player had won or not 
-  # @return [Bool] true if won, false otherwise .
+  # I got this code from this source: http://ow.ly/HEUYS
+  # @return [Bool] true if won, false otherwise.
   def won?
-		# @todo the player should win if he got 3x cells in a row, column cells, diagonal cells
-		# Check the rows, columns, and diagonals if they = the player * 3 
-    # [o,2,3,4,o,6,7,8,o] 
+    wins = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],  # <-- Horizontal wins
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],  # <-- Vertical wins
+    [0, 4, 8], [2, 4, 6]]             # <-- Diagonal wins
 
+    if wins.any? { |line| line.all? { |cell| @board.board[cell] == @current_player} }
+      return true
+    end
+
+    return false 
 	end
 
 	  # Give a score to the player, 10 if he won, -10, if he lost, 0 if draw.
@@ -30,9 +37,12 @@ class GameEngine
 	def play_game
 		puts "\n******** WELCOME TO TIC TAC TOE GAME *********\n"
     puts "\t\tLet's Play *_*\n\n"
+    9.times do
     @board.draw_board()
     human_player_move()
     @board.draw_board()
+    puts won?
+    end 
 	end
 
   # Check if the game is over by checking if a player had won or it was draw.
