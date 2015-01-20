@@ -16,6 +16,7 @@ class GameEngine
 		# @todo the player should win if he got 3x cells in a row, column cells, diagonal cells
 		# Check the rows, columns, and diagonals if they = the player * 3 
     # [o,2,3,4,o,6,7,8,o] 
+
 	end
 
 	  # Give a score to the player, 10 if he won, -10, if he lost, 0 if draw.
@@ -41,8 +42,8 @@ class GameEngine
 	  #   (hmmmm we can use score instead of these 2 methods)
 	end
 
-  # Check if the game is over by checking if a player had won or it was draw.
-  # @return [Array<Fixnum>] Array of all the empty cells.
+  # Check the available moves that the player can choose from.
+  # @return [Array<Fixnum>] Array of all the available moves.
 	def get_available_moves
     available_moves = []
     @board.board.each_index do |i|
@@ -76,7 +77,7 @@ class GameEngine
 	  end # outer if end
   end
 
-  # Decide what is the best move so the computer player wins
+  # Decide what is the best move so the computer_player wins
 	def computer_next_move(move)
 		# How many available moves we have (Based on that we will generate the tree)
     # Try every move and a new state(new state of the board) will be generated 
