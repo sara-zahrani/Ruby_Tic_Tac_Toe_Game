@@ -50,16 +50,31 @@ class GameEngine
 	end
 
   # Get the player input
+  # @todo The player move must be one of the available_moves 
+  # @note The commented code below will work after adding get_available_moves method)
 	def human_player_move
-		# @todo get the user input 
-		#   Validate it:
-		#     Only allow numbers from 1..9
-		#     The player move must be one of the available_moves
-		#   Store it in @human_player_move
-		#   Board[@human_player_move - 1] is the chesen cell on board
+    @current_player = @human_player 
 
-
-	end
+    print 'Choose your position on the board: (1-9) '
+    player_input = gets.chomp 
+    # Incase the user entered a number with more than 1 digits  
+    player_move = player_input[0]
+    invalid_input = /[a-z]/.match(player_move)
+    if invalid_input.nil?
+      human_player_move = player_move.to_i
+      @board.board[@human_player_move - 1] = "x"
+      # puts @board.board
+      # if get_available_moves.include?(player_move)
+      #   return player_postion.to_i
+      # else 
+      #   puts 'That position is already taken -_-'
+      #   human_player_move()
+      # end # inner if end
+    else
+      puts 'That is not a number -_-'
+      human_player_move()
+	  end # outer if end
+  end
 
   # Decide what is the best move so the computer player wins
 	def computer_next_move(move)
