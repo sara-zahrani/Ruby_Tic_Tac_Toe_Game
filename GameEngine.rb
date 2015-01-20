@@ -56,13 +56,13 @@ class GameEngine
     @current_player = @human_player 
 
     print 'Choose your position on the board: (1-9) '
-    player_input = gets.chomp 
+    player_input = gets.chomp
     # Incase the user entered a number with more than 1 digits  
     player_move = player_input[0]
-    invalid_input = /[a-z]/.match(player_move)
-    if invalid_input.nil?
-      human_player_move = player_move.to_i
-      @board.board[@human_player_move - 1] = "x"
+    invalid_input = /[a-z]/.match(player_move) 
+    if invalid_input.nil? && !player_input.empty?
+      @human_player_move = player_move.to_i - 1
+      @board.board[@human_player_move] = "x"
       # puts @board.board
       # if get_available_moves.include?(player_move)
       #   return player_postion.to_i
