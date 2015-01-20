@@ -16,7 +16,6 @@ class GameEngine
 		# @todo the player should win if he got 3x cells in a row, column cells, diagonal cells
 		# Check the rows, columns, and diagonals if they = the player * 3 
     # [o,2,3,4,o,6,7,8,o] 
-
 	end
 
 	  # Give a score to the player, 10 if he won, -10, if he lost, 0 if draw.
@@ -55,11 +54,9 @@ class GameEngine
 	end
 
   # Get the player input
-  # @todo The player move must be one of the available_moves 
   # @note The commented code below will work after adding get_available_moves method)
 	def human_player_move
     @current_player = @human_player 
-
     print 'Choose your position on the board: (1-9) '
     player_input = gets.chomp
     # Incase the user entered a number with more than 1 digits  
@@ -67,14 +64,12 @@ class GameEngine
     invalid_input = /[a-z]/.match(player_move) 
     if invalid_input.nil? && !player_input.empty?
       @human_player_move = player_move.to_i - 1
-      @board.board[@human_player_move] = "x"
-      # puts @board.board
-      # if get_available_moves.include?(player_move)
-      #   return player_postion.to_i
-      # else 
-      #   puts 'That position is already taken -_-'
-      #   human_player_move()
-      # end # inner if end
+      if get_available_moves.include?(@human_player_move)
+        @board.board[@human_player_move] = "x"
+      else 
+        puts 'That position is already taken -_-'
+        human_player_move()
+      end # inner if end
     else
       puts 'That is not a number -_-'
       human_player_move()
