@@ -26,13 +26,13 @@ class Board
   # Check if all cells in the board are all empty.
   # @return [bool] true if empty, false otherwise.
   def board_empty?
-		# @todo check each all cell
+		 @board.all? { |cell| cell.empty? }
 	end
 
   # Check if all cells in the board are all full.
   # @return [bool] true if full, false otherwise.
 	def board_full?
-    # @todo check each all cell
+    @board.all? { |cell| cell.length == 1 }
 	end
 
 end # class Board end 
