@@ -1,9 +1,9 @@
 class Cell
 
-  attr_reader :cell_id
+  attr_reader :cell
 
   def initialize()
-    @cell_id = ''
+    @cell = ''
   end
 
   # Check if cell is empty 
