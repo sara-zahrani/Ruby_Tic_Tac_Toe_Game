@@ -3,10 +3,10 @@ require_relative "./Cell"
 
 class Board
 
-	attr_reader :board
+  attr_reader :board
 
 	def initialize
-		@board = [Cell.new().cell_id] * 9
+		@board = [Cell.new().cell] * 9
 	end	
 
   # Draw the board on the terminal #{@board[0]}
@@ -36,6 +36,3 @@ class Board
 	end
 
 end # class Board end 
-
-board = Board.new
-board.draw_board
