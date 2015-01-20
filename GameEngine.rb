@@ -88,5 +88,6 @@ class GameEngine
 
 end # class Game end 
 
-
+game = GameEngine.new 
+game.play_game
 
