@@ -26,10 +26,13 @@ class GameEngine
   end
 
   # Start the game.
+  # @todo loop until game is over
 	def play_game
-		# @todo Print welcome message
-		# Draw the board
-    # loop until the game is over
+		puts "\n******** WELCOME TO TIC TAC TOE GAME *********\n"
+    puts "\t\tLet's Play *_*\n\n"
+    @board.draw_board()
+    human_player_move()
+    @board.draw_board()
 	end
 
   # Check if the game is over by checking if a player had won or it was draw.
