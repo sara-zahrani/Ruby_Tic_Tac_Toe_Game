@@ -4,8 +4,8 @@ require_relative "./Player"
 class GameEngine
 
 	def initialize
-	  @human_player = Player.new('x')
-	  @computer_player = Player.new('o')
+	  @human_player = Player.new('x').player
+	  @computer_player = Player.new('o').player
 	  @current_player = @human_player
 	  @board = Board.new
 	  @human_player_move = 0
