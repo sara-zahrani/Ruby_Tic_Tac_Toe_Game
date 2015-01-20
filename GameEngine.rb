@@ -45,8 +45,13 @@ class GameEngine
   # Check if the game is over by checking if a player had won or it was draw.
   # @return [Array<Fixnum>] Array of all the empty cells.
 	def get_available_moves
-		# @todo Check the empty cells on board and store them in an array 
-		#   board.empty? should help
+    available_moves = []
+    @board.board.each_index do |i|
+      if @board.board[i].empty?
+        available_moves.push(i)
+      end # if end 
+    end # each_index end
+    return available_moves
 	end
 
   # Get the player input
