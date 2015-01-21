@@ -10,22 +10,23 @@ class GameEngine
 	  @board = Board.new
 	  @human_player_move = 0
 	end
+
   # Check if the player had won or not 
   # I got this code from this source: http://ow.ly/HEUYS
-  # @return [Bool] true if won, false otherwise.
-  def won?
+  # @return [String] the winner player o or x. If no one wins, return empty string.
+  def get_winner(player)
     wins = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],  # <-- Horizontal wins
     [0, 3, 6], [1, 4, 7], [2, 5, 8],  # <-- Vertical wins
     [0, 4, 8], [2, 4, 6]]             # <-- Diagonal wins
 
-    if wins.any? { |line| line.all? { |cell| @board.board[cell] == @current_player} }
-      return true
+    if wins.any? { |line| line.all? { |cell| @board.board[cell] == player} }
+      return winner = player
     end
 
-    return false 
+    return winner = ''
 	end
-
+  
 	  # Give a score to the player, 10 if he won, -10, if he lost, 0 if draw.
     # @note This method will help with the minMax algorithm
     # @return [Fixnum] the value of the score.
