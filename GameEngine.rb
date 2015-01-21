@@ -30,6 +30,13 @@ class GameEngine
     # @note This method will help with the minMax algorithm
     # @return [Fixnum] the value of the score.
 	def player_score
+    if get_winner('o').eql? (@computer_player)
+      return 10
+    elsif get_winner('x').eql? (@human_player)
+      return -10
+    else 
+      return 0
+    end
   end
 
   # Start the game.
@@ -37,19 +44,28 @@ class GameEngine
 	def play_game
 		puts "\n******** WELCOME TO TIC TAC TOE GAME *********\n"
     puts "\t\tLet's Play *_*\n\n"
-    9.times do
-    @board.draw_board()
-    human_player_move()
-    @board.draw_board()
-    puts won?
-    end 
+     while !game_over?
+      @board.draw_board()
+      human_player_move()
+      # @note this is added just for testing becuse the best_computer_move is not added yet
+      # moves = get_available_moves
+      # if !moves.empty?
+      #    computer_next_move(moves[0])
+      # end
+      @board.draw_board()
+    end
+    # end
+
 	end
 
-  # Check if the game is over by checking if a player had won or it was draw.
-  # @return [bool] true if full, false otherwise.
+  # Check if the game is over by checking if a player had won or it was draw(board is full).
+  # @return [bool] true if it's over, false otherwise.
 	def game_over?
-	  # @todo check if current_player.won? or if board.board_full? 
-	  #   (hmmmm we can use score instead of these 2 methods)
+    if @board.board_full? || get_winner('o') == 'o' || get_winner('x') == 'x'
+      return true
+    else
+      return false
+    end
 	end
 
   # Check the available moves that the player can choose from.
