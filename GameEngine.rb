@@ -103,15 +103,21 @@ class GameEngine
 	  end # outer if end
   end
 
-  # Decide what is the best move so the computer_player wins
+  # Add the computer move to the board 
 	def computer_next_move(move)
-		# How many available moves we have (Based on that we will generate the tree)
+    @current_player = @computer_player
+    @board.board[move] = @computer_player
+	end
+
+  # Decide what is the best move so the computer_player wins (MiniMax Algorithm)
+  def best_computer_move
+    # @todo How many available moves we have (Based on that we will generate the tree)
     # Try every move and a new state(new state of the board) will be generated 
     # Assign a score for each state
     # Check the current player
     #   If computer player, give it the max score 
     #   If the human player, give it the min score 
-	end
+  end
 
 end # class Game end 
 
