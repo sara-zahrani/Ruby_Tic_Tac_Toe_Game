@@ -92,7 +92,7 @@ class GameEngine
     if invalid_input.nil? && !player_input.empty?
       @human_player_move = player_move.to_i - 1
       if get_available_moves.include?(@human_player_move)
-        @board.board[@human_player_move] = "x"
+        @board.board[@human_player_move] = @human_player
       else 
         puts 'That position is already taken -_-'
         human_player_move()
