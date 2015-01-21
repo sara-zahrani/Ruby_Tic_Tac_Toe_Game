@@ -117,6 +117,31 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#best_computer_move-instance_method" title="#best_computer_move (instance method)">- (Object) <strong>best_computer_move</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Decide what is the best move so the computer_player wins (MiniMax
+Algorithm).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#computer_next_move-instance_method" title="#computer_next_move (instance method)">- (Object) <strong>computer_next_move</strong>(move) </a>
     
 
@@ -132,7 +157,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Decide what is the best move so the computer player wins.</p>
+<p>Add the computer move to the board.</p>
 </div></span>
   
 </li>
@@ -156,7 +181,8 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Check if the game is over by checking if a player had won or it was draw.</p>
+<p>Check if the game is over by checking if a player had won or it was
+draw(board is full).</p>
 </div></span>
   
 </li>
@@ -180,7 +206,32 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Check if the game is over by checking if a player had won or it was draw.</p>
+<p>Check the available moves that the player can choose from.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_winner-instance_method" title="#get_winner (instance method)">- (String) <strong>get_winner</strong>(player) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if the player had won or not  I got this code from this source: <a
+href="http://ow.ly/HEUYS">ow.ly/HEUYS</a>.</p>
 </div></span>
   
 </li>
@@ -284,30 +335,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#won%3F-instance_method" title="#won? (instance method)">- (Bool) <strong>won?</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Check if the player had won or not.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -352,9 +379,9 @@
       <pre class="code"><span class="info file"># File 'GameEngine.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='ivar'>@human_player</span> <span class='op'>=</span> <span class='const'>Player</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@computer_player</span> <span class='op'>=</span> <span class='const'>Player</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>o</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@current_player</span> <span class='op'>=</span> <span class='ivar'>@human_player</span>
+  <span class='ivar'>@human_player</span> <span class='op'>=</span> <span class='const'>Player</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_player'>player</span>
+  <span class='ivar'>@computer_player</span> <span class='op'>=</span> <span class='const'>Player</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>o</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_player'>player</span>
+  <span class='ivar'>@current_player</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@board</span> <span class='op'>=</span> <span class='const'>Board</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='ivar'>@human_player_move</span> <span class='op'>=</span> <span class='int'>0</span>
 <span class='kw'>end</span></pre>
@@ -371,9 +398,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="computer_next_move-instance_method">
+  <h3 class="signature first" id="best_computer_move-instance_method">
   
-    - (<tt>Object</tt>) <strong>computer_next_move</strong>(move) 
+    - (<tt>Object</tt>) <strong>best_computer_move</strong> 
   
 
   
@@ -382,7 +409,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Decide what is the best move so the computer player wins</p>
+<p>Decide what is the best move so the computer_player wins (MiniMax
+Algorithm)</p>
 
 
   </div>
@@ -396,26 +424,69 @@
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
-68
-69</pre>
+114
+115
+116
+117
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_best_computer_move'>best_computer_move</span>
+  <span class='comment'># @todo How many available moves we have (Based on that we will generate the tree)
+</span>  <span class='comment'># Try every move and a new state(new state of the board) will be generated 
+</span>  <span class='comment'># Assign a score for each state
+</span>  <span class='comment'># Check the current player
+</span>  <span class='comment'>#   If computer player, give it the max score 
+</span>  <span class='comment'>#   If the human player, give it the min score 
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="computer_next_move-instance_method">
+  
+    - (<tt>Object</tt>) <strong>computer_next_move</strong>(move) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add the computer move to the board</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_computer_next_move'>computer_next_move</span><span class='lparen'>(</span><span class='id identifier rubyid_move'>move</span><span class='rparen'>)</span>
-	<span class='comment'># How many available moves we have (Based on that we will generate the tree)
-</span>   <span class='comment'># Try every move and a new state(new state of the board) will be generated 
-</span>   <span class='comment'># Assign a score for each state
-</span>   <span class='comment'># Check the current player
-</span>   <span class='comment'>#   If computer player, give it the max score 
-</span>   <span class='comment'>#   If the human player, give it the min score 
-</span><span class='kw'>end</span></pre>
+   <span class='ivar'>@current_player</span> <span class='op'>=</span> <span class='ivar'>@computer_player</span>
+   <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_board'>board</span><span class='lbracket'>[</span><span class='id identifier rubyid_move'>move</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@computer_player</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -433,7 +504,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Check if the game is over by checking if a player had won or it was draw.</p>
+<p>Check if the game is over by checking if a player had won or it was
+draw(board is full).</p>
 
 
   </div>
@@ -452,7 +524,7 @@
       
         &mdash;
         <div class='inline'>
-<p>true if full, false otherwise.</p>
+<p>true if it&#39;s over, false otherwise.</p>
 </div>
       
     </li>
@@ -465,18 +537,24 @@
       <pre class="lines">
 
 
-37
-38
-39
-40</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_game_over?'>game_over?</span>
-  <span class='comment'># @todo check if current_player.won? or if board.board_full? 
-</span>  <span class='comment'>#   (hmmmm we can use score instead of these 2 methods)
-</span><span class='kw'>end</span></pre>
+   <span class='kw'>if</span> <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_board_full?'>board_full?</span> <span class='op'>||</span> <span class='id identifier rubyid_get_winner'>get_winner</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>o</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>o</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_get_winner'>get_winner</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span>
+     <span class='kw'>return</span> <span class='kw'>true</span>
+   <span class='kw'>else</span>
+     <span class='kw'>return</span> <span class='kw'>false</span>
+   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -494,7 +572,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Check if the game is over by checking if a player had won or it was draw.</p>
+<p>Check the available moves that the player can choose from.</p>
 
 
   </div>
@@ -513,7 +591,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Array of all the empty cells.</p>
+<p>Array of all the available moves.</p>
 </div>
       
     </li>
@@ -526,18 +604,106 @@
       <pre class="lines">
 
 
-44
-45
-46
-47</pre>
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_available_moves'>get_available_moves</span>
-	<span class='comment'># @todo Check the empty cells on board and store them in an array 
-</span>	<span class='comment'>#   board.empty? should help
-</span><span class='kw'>end</span></pre>
+   <span class='id identifier rubyid_available_moves'>available_moves</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+   <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_board'>board</span><span class='period'>.</span><span class='id identifier rubyid_each_index'>each_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+     <span class='kw'>if</span> <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_board'>board</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+       <span class='id identifier rubyid_available_moves'>available_moves</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+     <span class='kw'>end</span> <span class='comment'># if end 
+</span>   <span class='kw'>end</span> <span class='comment'># each_index end
+</span>   <span class='kw'>return</span> <span class='id identifier rubyid_available_moves'>available_moves</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_winner-instance_method">
+  
+    - (<tt>String</tt>) <strong>get_winner</strong>(player) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if the player had won or not  I got this code from this source: <a
+href="http://ow.ly/HEUYS">ow.ly/HEUYS</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the winner player o or x. If no one wins, return empty string.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_winner'>get_winner</span><span class='lparen'>(</span><span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
+   <span class='id identifier rubyid_wins'>wins</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+   <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>6</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>8</span><span class='rbracket'>]</span><span class='comma'>,</span>  <span class='comment'># &lt;-- Horizontal wins
+</span>   <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>6</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>7</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>8</span><span class='rbracket'>]</span><span class='comma'>,</span>  <span class='comment'># &lt;-- Vertical wins
+</span>   <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>8</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>6</span><span class='rbracket'>]</span><span class='rbracket'>]</span>             <span class='comment'># &lt;-- Diagonal wins
+</span>
+   <span class='kw'>if</span> <span class='id identifier rubyid_wins'>wins</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span> <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_board'>board</span><span class='lbracket'>[</span><span class='id identifier rubyid_cell'>cell</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_player'>player</span><span class='rbrace'>}</span> <span class='rbrace'>}</span>
+     <span class='kw'>return</span> <span class='id identifier rubyid_winner'>winner</span> <span class='op'>=</span> <span class='id identifier rubyid_player'>player</span>
+   <span class='kw'>end</span>
+
+   <span class='kw'>return</span> <span class='id identifier rubyid_winner'>winner</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -555,6 +721,14 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>The commented code below will work after adding get_available_moves method)</p>
+</div>
+  </div>
+
+
 <p>Get the player input</p>
 
 
@@ -569,30 +743,50 @@
       <pre class="lines">
 
 
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre>
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_human_player_move'>human_player_move</span>
-	<span class='comment'># @todo get the user input 
-</span>	<span class='comment'>#   Validate it:
-</span>	<span class='comment'>#     Only allow numbers from 1..9
-</span>	<span class='comment'>#     The player move must be one of the available_moves
-</span>	<span class='comment'>#   Store it in @human_player_move
-</span>	<span class='comment'>#   Board[@human_player_move - 1] is the chesen cell on board
-</span>
-
-<span class='kw'>end</span></pre>
+  <span class='ivar'>@current_player</span> <span class='op'>=</span> <span class='ivar'>@human_player</span> 
+  <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Choose your position on the board: (1-9) </span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_player_input'>player_input</span> <span class='op'>=</span> <span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
+  <span class='comment'># Incase the user entered a number with more than 1 digits  
+</span>  <span class='id identifier rubyid_player_move'>player_move</span> <span class='op'>=</span> <span class='id identifier rubyid_player_input'>player_input</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_invalid_input'>invalid_input</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[a-z]</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='id identifier rubyid_player_move'>player_move</span><span class='rparen'>)</span> 
+  <span class='kw'>if</span> <span class='id identifier rubyid_invalid_input'>invalid_input</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_player_input'>player_input</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='ivar'>@human_player_move</span> <span class='op'>=</span> <span class='id identifier rubyid_player_move'>player_move</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span class='int'>1</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_get_available_moves'>get_available_moves</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@human_player_move</span><span class='rparen'>)</span>
+      <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_board'>board</span><span class='lbracket'>[</span><span class='ivar'>@human_player_move</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@human_player</span>
+    <span class='kw'>else</span> 
+      <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>That position is already taken -_-</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_human_player_move'>human_player_move</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>end</span> <span class='comment'># inner if end
+</span>  <span class='kw'>else</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>That is not a number -_-</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_human_player_move'>human_player_move</span><span class='lparen'>(</span><span class='rparen'>)</span>
+ <span class='kw'>end</span> <span class='comment'># outer if end
+</span><span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -610,6 +804,14 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+  <div class="note todo">
+    <strong>TODO:</strong>
+    <div class='inline'>
+<p>loop until game is over</p>
+</div>
+  </div>
+
+
 <p>Start the game.</p>
 
 
@@ -624,20 +826,42 @@
       <pre class="lines">
 
 
-29
-30
-31
-32
-33</pre>
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_play_game'>play_game</span>
-	<span class='comment'># @todo Print welcome message
-</span>	<span class='comment'># Draw the board
-</span>   <span class='comment'># loop until the game is over
-</span><span class='kw'>end</span></pre>
+	<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n******** WELCOME TO TIC TAC TOE GAME *********\n</span><span class='tstring_end'>&quot;</span></span>
+   <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\t\tLet&#39;s Play *_*\n\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>while</span> <span class='op'>!</span><span class='id identifier rubyid_game_over?'>game_over?</span>
+     <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_draw_board'>draw_board</span><span class='lparen'>(</span><span class='rparen'>)</span>
+     <span class='id identifier rubyid_human_player_move'>human_player_move</span><span class='lparen'>(</span><span class='rparen'>)</span>
+     <span class='comment'># @note this is added just for testing becuse the best_computer_move is not added yet
+</span>     <span class='comment'># moves = get_available_moves
+</span>     <span class='comment'># if !moves.empty?
+</span>     <span class='comment'>#    computer_next_move(moves[0])
+</span>     <span class='comment'># end
+</span>     <span class='ivar'>@board</span><span class='period'>.</span><span class='id identifier rubyid_draw_board'>draw_board</span><span class='lparen'>(</span><span class='rparen'>)</span>
+   <span class='kw'>end</span>
+   <span class='comment'># end
+</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -695,78 +919,27 @@
       <pre class="lines">
 
 
-25
-26</pre>
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_player_score'>player_score</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="won?-instance_method">
-  
-    - (<tt>Bool</tt>) <strong>won?</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Check if the player had won or not</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Bool</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>true if won, false otherwise .</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-15
-16
-17
-18
-19
-20</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'GameEngine.rb', line 15</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_won?'>won?</span>
-	<span class='comment'># @todo the player should win if he got 3x cells in a row, column cells, diagonal cells
-</span>	<span class='comment'># Check the rows, columns, and diagonals if they = the player * 3 
-</span>   <span class='comment'># [o,2,3,4,o,6,7,8,o]
-</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_get_winner'>get_winner</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>o</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_eql?'>eql?</span> <span class='lparen'>(</span><span class='ivar'>@computer_player</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='int'>10</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_get_winner'>get_winner</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_eql?'>eql?</span> <span class='lparen'>(</span><span class='ivar'>@human_player</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='op'>-</span><span class='int'>10</span>
+  <span class='kw'>else</span> 
+    <span class='kw'>return</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -778,7 +951,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Jan 19 20:00:23 2015 by
+  Generated on Wed Jan 21 16:25:36 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
